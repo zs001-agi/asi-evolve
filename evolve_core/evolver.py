@@ -24,39 +24,44 @@ class AbilityEvolver:
             "best_params_found": {}
         }
 
-    def setup(self, ability_configs: List[Dict]):
-        """
-        设置进化目标
+from typing import List, Dict
+
+def setup(self, ability_configs: List[Dict]):
+    """
+    设置进化目标
         
-        ability_configs: [
-            {"ability": "learning_rate", "min": 0.001, "max": 0.5, "importance": 2.0},
-            {"ability": "exploration", "min": 0.0, "max": 1.0, "importance": 1.5},
-            ...
-        ]
-        """
-        gene_specs = []
-        for cfg in ability_configs:
-            gene_specs.append({
-                "key": cfg["ability"],
-                "min": cfg["min"],
-                "max": cfg["max"],
-                "type": cfg.get("type", "parameter"),
-                "mutation_rate": cfg.get("mutation_rate", 0.1),
-                "crossover_rate": cfg.get("crossover_rate", 0.7),
-                "importance": cfg.get("importance", 1.0)
-            })
+    ability_configs: [
+        {"ability": "learning_rate", "min": 0.001, "max": 0.5, "importance": 2.0},
+        {"ability": "exploration", "min": 0.0, "max": 1.0, "importance": 1.5},
+        ...
+    ]
+    """
+    gene_specs = setup_gene_specs(ability_configs)
+    
+    # Initialize genetic algorithm
+    self.genetic_algorithm.initialize(gene_specs)
+
+def setup_gene_specs(ability_configs: List[Dict]) -> List[Dict]:
+    """
+    设置基因规格
         
-        config = EvolutionConfig(
-            strategy=EvolutionStrategy.GENETIC_ALGORITHM,
-            population_size=30,
-            elite_size=3,
-            generations=50,
-            tournament_size=5
-        )
-        
-        self.ea = EvolutionaryAlgorithm(config)
-        self.ea.initialize(gene_specs)
-        self.ability_params = {cfg["ability"]: cfg for cfg in ability_configs}
+    ability_configs: [
+        {"ability": "learning_rate", "min": 0.001, "max": 0.5, "importance": 2.0},
+        {"ability": "exploration", "min": 0.0, "max": 1.0, "importance": 1.5},
+        ...
+    ]
+    """
+    gene_specs = []
+    for cfg in ability_configs:
+        gene_specs.append({
+            "key": cfg["ability"],
+            "min": cfg["min"],
+            "max": cfg["max"],
+            "type": cfg.get("type", "parameter"),
+            "mutatable": cfg.get("mutatable", True),
+            "importance": cfg["importance"]
+        })
+    return gene_specs
 
     def fitness_fn(self, chrom: Chromosome) -> float:
         """
