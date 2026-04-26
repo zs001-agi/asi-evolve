@@ -1,15 +1,10 @@
 """Genetic algorithm genome - Gene and Chromosome dataclasses"""
-import random
-import math
-import time
-import json
-import hashlib
-import copy
-import operator
+import random, math, time, json, hashlib, copy, operator
 from typing import Dict, Any, List, Optional, Callable, Tuple
 from dataclasses import dataclass, field
 from enum import Enum
 from collections import deque
+
 class GeneType(Enum):
     PARAMETER = "parameter"         # 参数基因
     STRATEGY = "strategy"          # 策略基因
@@ -17,7 +12,7 @@ class GeneType(Enum):
     WEIGHT = "weight"              # 权重基因
     RULE = "rule"                  # 规则基因
 
-
+@dataclass
 class Gene:
     """基因"""
     gene_id: str
@@ -62,7 +57,7 @@ class Gene:
             )
         return copy.deepcopy(self), copy.deepcopy(other)
 
-
+@dataclass
 class Chromosome:
     """染色体 = 一组基因"""
     chromosome_id: str
@@ -105,4 +100,3 @@ class Chromosome:
             if g.key == key:
                 return g.value
         return default
-
