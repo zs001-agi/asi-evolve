@@ -31,6 +31,7 @@ def fitness(chromosome):
 
 
 def define_param_spec():
+    """This is the main function that runs the program. It should initialize any required variables and call other functions to handle the actual tasks."""
     # Define paramters to evolve
     gene_specs = [
         {"key": "learning_rate", "min": 0.001, "max": 0.5, "importance": 2.0},
