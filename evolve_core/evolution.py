@@ -1,15 +1,10 @@
 """Evolutionary algorithm engine - multiple evolution strategies"""
-import random
-import math
-import time
-import json
-import hashlib
-import copy
+import random, math, time, json, hashlib, copy
 from typing import Dict, Any, List, Optional, Callable, Tuple
 from dataclasses import dataclass, field
 from enum import Enum
-
 from evolve_core.genome import GeneType, Gene, Chromosome
+
 class EvolutionStrategy(Enum):
     GENETIC_ALGORITHM = "ga"          # 标准遗传算法
     EVOLUTION_STRATEGY = "es"        # 进化策略 (1+1, μ+λ)
@@ -20,7 +15,7 @@ class EvolutionStrategy(Enum):
     ISLAND_MODEL = "island"          # 岛屿模型
     NEUROEVOLUTION = "neuro"         # 神经进化
 
-
+@dataclass
 class EvolutionConfig:
     """进化配置"""
     strategy: EvolutionStrategy = EvolutionStrategy.GENETIC_ALGORITHM
@@ -42,7 +37,6 @@ class EvolutionConfig:
     meta_learning: bool = True
     adapt_mutation: bool = True
     adapt_crossover: bool = True
-
 
 class EvolutionaryAlgorithm:
     """
@@ -362,4 +356,3 @@ class EvolutionaryAlgorithm:
             "best_chromosome": self.best_chromosome.to_dict() if self.best_chromosome else None,
             "recent_history": recent
         }
-
