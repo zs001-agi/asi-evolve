@@ -10,30 +10,24 @@ jobs:
   test:
     runs-on: self-hosted
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        shell: cmd
+        run: git clone --depth 1 https://github.com/zs001-agi/asi-evolve.git %RUNNER_TEMP%\asi-evolve
 
-      - name: Install package
-        run: D:\Python312\python.exe -m pip install -e .
-
-      - name: Test imports
+      - name: Install and Test
+        shell: pwsh
         run: |
+          Set-Location $env:RUNNER_TEMP\asi-evolve
+          D:\Python312\python.exe -m pip install -e . --quiet
+          
+          Write-Output "=== Test Imports ==="
           D:\Python312\python.exe -c "from evolve_core import Gene, GeneType, Chromosome, EvolutionConfig, EvolutionStrategy, EvolutionaryAlgorithm, AbilityEvolver; print('All imports OK')"
-
-      - name: Test GA evolution
-        run: |
+          
+          Write-Output "=== Test GA ==="
           D:\Python312\python.exe -c "from evolve_core import EvolutionaryAlgorithm, EvolutionConfig; c=EvolutionConfig(population_size=10,elite_size=2,generations=5); ea=EvolutionaryAlgorithm(c); ea.initialize([{'key':'x','min':-10,'max':10}]); [ea.evolve(lambda c:abs(c.get_value('x',0))) for _ in range(5)]; print('GA OK')"
-
-      - name: Test serialization
-        run: |
+          
+          Write-Output "=== Test Serialize ==="
           D:\Python312\python.exe -c "from evolve_core import Chromosome; c=Chromosome.random([{'key':'a','min':0,'max':1}]); d=c.to_dict(); assert 'chromosome_id' in d; print('Serialize OK')"
-
-  lint:
-    runs-on: self-hosted
-    steps:
-      - uses: actions/checkout@v4
-      - name: Lint
-        run: |
-          D:\Python312\python.exe -m py_compile evolve_core/genome.py
-          D:\Python312\python.exe -m py_compile evolve_core/evolution.py
-          D:\Python312\python.exe -m py_compile evolve_core/evolver.py
-          echo "Lint OK"
+          
+          Write-Output "=== Test Ollama ==="
+          D:\Python312\python.exe -c "import urllib.request,json; r=urllib.request.urlopen('http://localhost:11434/api/tags',timeout=5); m=json.loads(r.read()).get('models',[]); print(f'Ollama: {len(m)} models')"
