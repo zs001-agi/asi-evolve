@@ -1,0 +1,118 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Test imports
+        run: |
+          python -c "
+from evolve_core import Gene, GeneType, Chromosome
+from evolve_core import EvolutionConfig, EvolutionStrategy, EvolutionaryAlgorithm
+from evolve_core import AbilityEvolver
+print('All imports successful')
+          "
+
+      - name: Test basic GA evolution
+        run: |
+          python -c "
+from evolve_core import EvolutionaryAlgorithm, EvolutionConfig, EvolutionStrategy
+
+config = EvolutionConfig(population_size=10, elite_size=2, generations=5)
+ea = EvolutionaryAlgorithm(config)
+ea.initialize([
+    {'key': 'x', 'min': -10, 'max': 10, 'importance': 1.0},
+    {'key': 'y', 'min': -10, 'max': 10, 'importance': 1.0},
+])
+
+def fitness(chrom):
+    x = chrom.get_value('x', 0)
+    y = chrom.get_value('y', 0)
+    return -(x**2 + y**2) + 100  # Maximize distance from origin = find (0,0)
+
+for gen in range(config.generations):
+    result = ea.evolve(fitness)
+
+best = ea.get_best()
+params = {g.key: round(g.value, 4) for g in best.genes}
+print(f'Best params: {params}')
+print(f'Fitness: {result[\"best_fitness\"]:.4f}')
+print(f'GA test passed!')
+          "
+
+      - name: Test Differential Evolution
+        run: |
+          python -c "
+from evolve_core import EvolutionaryAlgorithm, EvolutionConfig, EvolutionStrategy
+
+config = EvolutionConfig(
+    strategy=EvolutionStrategy.DIFFERENTIAL_EVOLUTION,
+    population_size=20, generations=10
+)
+ea = EvolutionaryAlgorithm(config)
+ea.initialize([
+    {'key': 'x', 'min': -5, 'max': 5},
+])
+
+def fitness(chrom):
+    x = chrom.get_value('x', 0)
+    return -(x**2) + 25
+
+for gen in range(config.generations):
+    ea.evolve(fitness)
+
+print(f'DE test passed! Best: {ea.stats[\"best_fitness_ever\"]:.4f}')
+          "
+
+      - name: Test serialization
+        run: |
+          python -c "
+from evolve_core import Chromosome
+
+specs = [{'key': 'a', 'min': 0, 'max': 1}]
+c = Chromosome.random(specs)
+d = c.to_dict()
+assert 'chromosome_id' in d
+assert 'genes' in d
+assert 'fitness' in d
+print(f'Serialization test passed! ID: {d[\"chromosome_id\"]}')
+          "
+
+      - name: Run example
+        run: |
+          python examples/basic_evolution.py
+
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Lint with Ruff
+        run: |
+          pip install ruff
+          ruff check evolve_core/ --ignore=E501,E402
