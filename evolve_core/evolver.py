@@ -42,6 +42,7 @@ def setup(self, ability_configs: List[Dict]):
     self.genetic_algorithm.initialize(gene_specs)
 
 def create_gene_spec(cfg: Dict) -> Dict:
+    """This function creates a gene specification object, encapsulating data related to genes including their identifiers, names, and any other relevant metadata."""
     return {
         "key": cfg["ability"],
         "min": cfg["min"],
