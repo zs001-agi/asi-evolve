@@ -41,10 +41,20 @@ def setup(self, ability_configs: List[Dict]):
     # Initialize genetic algorithm
     self.genetic_algorithm.initialize(gene_specs)
 
+def create_gene_spec(cfg: Dict) -> Dict:
+    return {
+        "key": cfg["ability"],
+        "min": cfg["min"],
+        "max": cfg["max"],
+        "type": cfg.get("type", "parameter"),
+        "mutatable": cfg.get("mutatable", True),
+        "importance": cfg.get("importance", 1.0)
+    }
+
 def setup_gene_specs(ability_configs: List[Dict]) -> List[Dict]:
     """
     设置基因规格
-        
+
     ability_configs: [
         {"ability": "learning_rate", "min": 0.001, "max": 0.5, "importance": 2.0},
         {"ability": "exploration", "min": 0.0, "max": 1.0, "importance": 1.5},
@@ -53,76 +63,6 @@ def setup_gene_specs(ability_configs: List[Dict]) -> List[Dict]:
     """
     gene_specs = []
     for cfg in ability_configs:
-        gene_specs.append({
-            "key": cfg["ability"],
-            "min": cfg["min"],
-            "max": cfg["max"],
-            "type": cfg.get("type", "parameter"),
-            "mutatable": cfg.get("mutatable", True),
-            "importance": cfg["importance"]
-        })
+        gene_specs.append(create_gene_spec(cfg))
     return gene_specs
-
-    def fitness_fn(self, chrom: Chromosome) -> float:
-        """
-        适应度函数
-        这里需要根据实际能力表现计算适应度
-        子类应该覆盖此方法
-        """
-        # 默认适应度：基因值的加权和（越高越好）
-        score = 0.0
-        for gene in chrom.genes:
-            # 归一化值
-            norm_val = (gene.value - gene.bounds[0]) / max(gene.bounds[1] - gene.bounds[0], 0.001)
-            score += norm_val * gene.importance
-        
-        # 惩罚多样性过低
-        diversity = self.ea._calculate_diversity() if self.ea else 0
-        if diversity < 0.1:
-            score *= 0.5
-        
-        return score
-
-    def evolve_generations(self, n: int = 10, verbose: bool = True) -> Dict[str, Any]:
-        """运行 n 代进化"""
-        if self.ea is None:
-            return {"error": "Not initialized. Call setup() first."}
-        
-        results = []
-        for i in range(n):
-            result = self.ea.evolve(self.fitness_fn)
-            results.append(result)
-            self.stats["generations_completed"] += 1
-            
-            if verbose and i % 5 == 0:
-                print(f"Gen {result['generation']}: best={result['best_fitness']:.4f}, "
-                      f"avg={result['avg_fitness']:.4f}, div={result['diversity']:.4f}")
-        
-        self.stats["evolutions_run"] += 1
-        
-        # 更新最佳参数
-        best = self.ea.get_best()
-        if best:
-            self.stats["best_params_found"] = best.to_dict()
-            for gene in best.genes:
-                self.stats["abilities_improved"].add(gene.key)
-        
-        return {
-            "generations": results,
-            "best": self.ea.get_report(),
-            "stats": {**self.stats, "abilities_improved": list(self.stats["abilities_improved"])}
-        }
-
-    def get_best_params(self) -> Dict[str, float]:
-        """获取最佳参数"""
-        best = self.ea.get_best() if self.ea else None
-        if not best:
-            return {}
-        return {g.key: g.value for g in best.genes}
-
-    def get_report(self) -> Dict[str, Any]:
-        return {
-            "evolver_stats": {**self.stats, "abilities_improved": list(self.stats["abilities_improved"])},
-            "ea_report": self.ea.get_report() if self.ea else {"status": "not_initialized"}
-        }
 
