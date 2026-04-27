@@ -226,3 +226,14 @@ Add an example of how to use the Asi-Evolve project in the README.
 
 ---
 Add a brief overview of the project, its purpose, and how it addresses a specific problem.
+
+---
+# evolve-core 🧬
+
+> A self-evolving AI framework powered by genetic algorithms.
+
+**evolve-core** is a pure-Python framework for creating AI systems that improve themselves. It implements 8 evolution strategies with diversity protection, adaptive mutations, and meta-evolution capabilities — all with zero external dependencies.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-00
