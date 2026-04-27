@@ -41,6 +41,7 @@ def define_param_spec():
     return gene_specs
 
 def configure_evolution(config):
+    """Configure evolution settings for an AI model."""
     # Configure evolution with adaptive mutation
     EvolutionConfig(
         strategy=EvolutionStrategy.GENETIC_ALGORITHM,
