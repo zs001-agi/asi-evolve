@@ -1,3 +1,6 @@
 
 ## 2026-04-28
-asi-evolve update includes new example scripts, several bug fixes, and enhanced documentation to improve user experience.
+asi-evolve v1.2.1 - Released March 15, 2023  
+• Added new examples to demonstrate advanced usage scenarios.  
+• Fixed several bugs reported by users.  
+• Enhanced documentation for better understanding and ease of use.
