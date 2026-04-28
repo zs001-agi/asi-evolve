@@ -89,42 +89,53 @@ class EvolutionaryAlgorithm:
             current_best.fitness
         )
 
-    def evolve(self, fitness_fn: Callable[[Chromosome], float]) -> Dict[str, Any]:
-        """
-        执行一代进化
-        返回: 进化统计
-        """
-        self.generation += 1
-        self.evaluate_population(fitness_fn)
-        
-        # 多样性检查
-        diversity = self._calculate_diversity()
-        self.stats["diversity_history"].append(diversity)
-        
-        # 选择
-        selected = self._select()
-        
-        # 繁殖
-        new_population = self._reproduce(selected)
-        
-        # 更新
-        self.population = new_population
-        
-        # 记录历史
-        best = max(self.population, key=lambda c: c.fitness)
-        avg = sum(c.fitness for c in self.population) / len(self.population)
-        
-        history_entry = {
-            "generation": self.generation,
-            "best_fitness": best.fitness,
-            "avg_fitness": avg,
-            "diversity": diversity,
-            "stagnation": self.stats["stagnation_count"],
-            "best_origin": best.origin
-        }
-        self.history.append(history_entry)
-        
-        return history_entry
+def evolve(self, fitness_fn: Callable[[Chromosome], float]) -> Dict[str, Any]:
+    """
+    执行一代进化
+    返回: 进化统计
+    """
+    self.generation += 1
+    self.evaluate_population(fitness_fn)
+    
+    # 多样性检查
+    diversity = self._calculate_diversity()
+    self.stats["diversity_history"].append(diversity)
+    
+    # 选择
+    selected = self._select()
+    
+    # 繁殖
+    new_population = self._reproduce(selected)
+    
+    # 更新
+    self.population = new_population
+    
+    # 记录历史
+    best = max(self.population, key=fitness_fn)
+    self.stats["best_fitness"].append(fitness_fn(best))
+    
+    return self.stats
+
+def _calculate_diversity(self) -> float:
+    """
+    计算种群多样性
+    """
+    # 实现计算多样性逻辑
+    pass
+
+def _select(self) -> List[Chromosome]:
+    """
+    选择适应度高的个体
+    """
+    # 实现选择逻辑
+    pass
+
+def _reproduce(self, selected: List[Chromosome]) -> List[Chromosome]:
+    """
+    进行繁殖生成新种群
+    """
+    # 实现繁殖逻辑
+    pass
 
     def _calculate_diversity(self) -> float:
         """计算种群多样性（基因距离标准差）"""
