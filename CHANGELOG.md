@@ -1,3 +1,5 @@
 
 ## 2026-04-28
-asi-evolve update includes new example projects, several bug fixes, and enhanced documentation to improve user experience and functionality.
+* Added several new examples to better illustrate usage.
+* Fixed various bugs reported in previous versions.
+* Improved the documentation for clarity and completeness.
