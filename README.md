@@ -409,3 +409,26 @@ Add a brief description of the project and its purpose in the README file.
 
 ---
 Add a brief description of the project and its purpose to the README.
+
+---
+## 🚀 Features
+
+### Evolution Strategies
+
+* **Diversity Protection** - Prevents premature convergence by ensuring genetic diversity.
+* **Adaptive Mutations** - Dynamically adjust mutation rates to balance exploration and exploitation.
+* **Meta-Evolution** - Continuously evolves the algorithm itself, maintaining adaptability.
+
+### Performance Optimization
+
+* **Optimized Algorithms** - Utilizes advanced genetic algorithms for efficient system improvement.
+* **Parallel Processing** - Leverages multithreading and asynchronous processing to speed up training times.
+
+### Ease of Use
+
+* **User-Friendly Interface** - Simplifies setup and configuration with intuitive functions.
+* **Advanced Configuration** - Allows customization of parameters like mutation rates, crossover probabilities, etc.
+
+### Community Support
+
+*
