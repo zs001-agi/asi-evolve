@@ -468,3 +468,6 @@ Add more detailed information about the project's goals and how it fits into the
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-00
+
+---
+Add a brief description of the project and its main functionalities in the README.
