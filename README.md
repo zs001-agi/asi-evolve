@@ -432,3 +432,6 @@ Add a brief description of the project and its purpose to the README.
 ### Community Support
 
 *
+
+---
+Add more detailed information about the project's goals and how it fits into the broader context.
