@@ -1,3 +1,3 @@
 
 ## 2026-05-01
-asi-evolve update: Added new examples, fixed bugs, and enhanced documentation for better usability and learning.
+asi-evolve v1.2 - Enhancements include new examples, bug fixes, and updated documentation to improve usability and user experience.
