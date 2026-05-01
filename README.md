@@ -558,3 +558,6 @@ These improvements will significantly enhance the usability and reliability of t
 # evolve-core 🧬
 
 > A self-evolving AI framework powered by genetic algorithms.
+
+---
+Enhance documentation for clarity and ease of use.
