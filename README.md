@@ -604,3 +604,6 @@ Add instructions for setting up and running the project.
 > A self-evolving AI framework powered by genetic algorithms.
 
 **evolve-core** is a pure-Python framework for creating AI systems that improve themselves. It implements 8 evolution strategies with diversity protection, adaptive mutations, and meta-evolution capabilities — all with zero external dependencies.
+
+---
+- Enhance the project description to clearly explain what it does.
