@@ -621,3 +621,30 @@ Add instructions for setting up and running the project.
 
 ---
 Update the README to include more detailed instructions and examples for users unfamiliar with the project.
+
+---
+**✨ Features**
+
+- **8 Evolution Strategies**: 
+  - Fitness Function Adaptation
+  - Mutation Rate Adjustment
+  - Population Size Control
+  - Elitism Strategy
+  - Tournament Selection
+  - Crossover
+  - Diversity Protection (e.g., ELIT, NELIT)
+  
+- **Adaptive Mutations**: 
+  - Strength-Based Mutation Rates
+  - Random Mutation Probabilities
+  - Adaptive Mutation Strategies
+
+- **Meta-Evolution Capabilities**:
+  - Adaptive Evolution Speeds
+  - Multi-Level Selection
+  - Hyperparameter Tuning
+
+- **Zero External Dependencies**:
+  - All libraries used are pure-Python and available on PyPI.
+  
+## 🧬 How to Use
