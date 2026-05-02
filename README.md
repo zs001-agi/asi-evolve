@@ -594,3 +594,6 @@ Enhance the "Features" section to highlight key functionalities and benefits of 
 
 ---
 **"Add usage instructions to help others understand how to use the project."**
+
+---
+Add instructions for setting up and running the project.
