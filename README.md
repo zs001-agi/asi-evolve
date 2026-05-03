@@ -648,3 +648,6 @@ Update the README to include more detailed instructions and examples for users u
   - All libraries used are pure-Python and available on PyPI.
   
 ## 🧬 How to Use
+
+---
+Add a brief description of the project's purpose and main features in the README.
