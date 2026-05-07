@@ -725,3 +725,6 @@ pip install asi-evolve
 ```
 
 This installation will download the library and its dependencies from PyPI.
+
+---
+Consider adding a brief description of the project's purpose and features in the README to help potential contributors understand what it does without needing to delve into the codebase.
