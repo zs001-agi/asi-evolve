@@ -690,3 +690,6 @@ Add a brief description of the project to help potential users understand its pu
 
 ---
 Add installation instructions in the README to help users get started quickly.
+
+---
+*Add a brief description of the project.*
