@@ -710,3 +710,18 @@ Enhance the "Usage" section to provide clear instructions on setting up and runn
 
 ---
 Add a brief introduction and goals at the top of the README.
+
+---
+### 🌟 Community and Support
+
+**evolve-core** is actively maintained by the community, with a dedicated GitHub repository for collaboration. Check out our [README](https://github.com/zs001-agi/asi-evolve) for more information on how to get started, contribute, and find support.
+
+## 🚀 Installation
+
+You can install **evolve-core** using pip:
+
+```bash
+pip install asi-evolve
+```
+
+This installation will download the library and its dependencies from PyPI.
