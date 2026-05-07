@@ -693,3 +693,6 @@ Add installation instructions in the README to help users get started quickly.
 
 ---
 *Add a brief description of the project.*
+
+---
+Enhance the "Usage" section to provide clear instructions on setting up and running the project.
