@@ -776,3 +776,8 @@ Add instructions for installing dependencies and running the project.
 
 ---
 Add a brief description of what Asi-Evolve is about in the README.
+
+---
+# evolve-core 🧬
+
+> A self-evolving AI framework powered by genetic algorithms.
