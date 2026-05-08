@@ -798,3 +798,6 @@ Add a screenshot or video of the project in action.
 
 ---
 Make the installation instructions clear and concise.
+
+---
+Add screenshots or links to the README for better visibility and engagement.
