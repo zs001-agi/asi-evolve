@@ -877,3 +877,14 @@ Enhance the project description to highlight its unique features or benefits.
 1. Add brief installation instructions using [Docker](https://docs.docker.com/get-docker/)
 2. Include a simple example of running the project
 3. Consider adding a link to the project's GitHub repository
+
+---
+# evolve-core 🧬
+
+> A self-evolving AI framework powered by genetic algorithms.
+
+**evolve-core** is a pure-Python framework for creating AI systems that improve themselves. It implements 8 evolution strategies with diversity protection, adaptive mutations, and meta-evolution capabilities — all with zero external dependencies.
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-00
