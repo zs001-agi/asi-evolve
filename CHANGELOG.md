@@ -1,3 +1,3 @@
 
-## 2026-05-11
-asi-evolve v1.2.0 - Added new example scripts to demonstrate advanced usage; fixed several bugs impacting data processing; updated documentation for clarity and completeness.
+## 2026-05-12
+asi-evolve: Updated with numerous new examples, resolved critical bugs, and enhanced documentation for an improved user experience.
