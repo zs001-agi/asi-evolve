@@ -3,6 +3,7 @@ import random
 
 # Define the fitness function for evaluating solutions
 def fitness(solution):
+    """Compute fitness of an individual in a genetic algorithm based on given criteria."""
     return sum([x**2 for x in solution])
 
 # Initialize population randomly
