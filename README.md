@@ -991,3 +991,6 @@ Add a brief description of the project's purpose and key features in the README.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-00
+
+---
+Add instructions on how to run the project or provide links to installation guides for different platforms.
