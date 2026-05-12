@@ -1036,3 +1036,18 @@ Make sure to provide clear instructions on how to install dependencies and run t
 
 ---
 Add screenshots and a brief description of the project functionality to make it more appealing and user-friendly.
+
+---
+## 🚀 Improvements for Attracting More Stars
+
+### 1. **Detailed Documentation**
+   - Add comprehensive guides and tutorials on how to use `evolve-core`. Provide step-by-step examples and a thorough explanation of the core concepts.
+   - Include detailed explanations of each evolution strategy, including their advantages, drawbacks, and practical applications.
+
+### 2. **Code Quality and Readability**
+   - Ensure that the code is clean, well-documented, and follows PEP 8 guidelines.
+   - Optimize algorithms for performance and readability. Use efficient data structures and algorithms where possible.
+   - Include comments to explain complex logic or decisions in the code.
+
+### 3. **Example Projects and Code Snippets**
+   -
