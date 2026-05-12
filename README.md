@@ -1051,3 +1051,6 @@ Add screenshots and a brief description of the project functionality to make it 
 
 ### 3. **Example Projects and Code Snippets**
    -
+
+---
+Add instructions on how to install dependencies and run the project in the README file.
