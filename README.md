@@ -1157,3 +1157,6 @@ Make sure to include information about how to install the project and run it.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-00
+
+---
+Consider adding a brief example of how to use the project in a simple markdown file or a short guide on how to install and run it.
