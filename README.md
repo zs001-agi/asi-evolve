@@ -1136,3 +1136,10 @@ Enhance the "Features" section by adding a brief bullet point about how asi-evol
 
 ---
 **Enhance Project Description**: Add a brief paragraph describing the purpose and main features of the `asi-evolve` project.
+
+---
+# evolve-core 🧬
+
+> A self-evolving AI framework powered by genetic algorithms.
+
+**evolve-core** is a pure-Python framework for creating AI systems that improve themselves. It implements 8 evolution strategies with diversity protection, adaptive mutations, and meta-evolution capabilities — all with zero external dependencies.
