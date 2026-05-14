@@ -2,31 +2,42 @@
 import random
 
 class GeneticAlgorithm:
-    def __init__(self, population_size, mutation_rate):
-        self.population = [random.uniform(-1, 1) for _ in range(population_size)]
+    def __init__(self, population_size, mutation_rate, crossover_probability):
+        self.population = [random.randint(0, 1) for _ in range(population_size)]
         self.mutation_rate = mutation_rate
-    
+        self.crossover_probability = crossover_probability
+
     def evolve(self):
         new_population = []
         for _ in range(len(self.population)):
             parent1 = random.choice(self.population)
             parent2 = random.choice(self.population)
-            offspring = self.crossover(parent1, parent2)
-            offspring = self.mutate(offspring)
-            new_population.append(offspring)
+            
+            if random.random() < crossover_probability:
+                child = GeneticAlgorithm.mutate(parent1, parent2)
+            else:
+                child = GeneticAlgorithm.copy(parent1)
+            
+            new_population.append(child)
+        
         self.population = new_population
-    
-    def crossover(self, parent1, parent2):
-        return (parent1 + parent2) / 2
-    
-    def mutate(self, individual):
-        for i in range(len(individual)):
-            if random.random() < self.mutation_rate:
-                individual[i] += random.uniform(-0.5, 0.5)
-        return individual
+
+    @staticmethod
+    def mutate(parent, other):
+        child = []
+        for i in range(len(parent)):
+            if random.random() < mutation_rate:
+                child.append(1 - parent[i])
+            else:
+                child.append(parent[i])
+        return GeneticAlgorithm(mutate(child, parent))
+
+    @staticmethod
+    def copy(parent):
+        return [parent[i] for i in range(len(parent))]
 
 # Example usage
-ga = GeneticAlgorithm(100, 0.1)
+ga = GeneticAlgorithm(population_size=50, mutation_rate=0.1, crossover_probability=0.8)
 for _ in range(100):
     ga.evolve()
 print(ga.population)
