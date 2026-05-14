@@ -1227,3 +1227,8 @@ Add an introductory paragraph to provide context and motivate potential contribu
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-00
+
+---
+- Add detailed instructions on setting up the environment and running the project.
+- Include screenshots or images to illustrate key steps.
+- Provide a clear description of the project goals and objectives.
