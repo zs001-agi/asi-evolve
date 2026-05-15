@@ -1330,3 +1330,8 @@ Consider adding a brief description of the project goals and how it can benefit 
 
 ---
 Add an example of how to use the package in your README.
+
+---
+# evolve-core 🧬
+
+> A self-evolving AI framework powered by genetic algorithms.
