@@ -1349,3 +1349,7 @@ Add more detailed examples and screenshots in the README.
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-00
+
+---
+markdown
+Consider adding installation instructions and a brief description of the project's main features to make it more accessible for new contributors or users.
