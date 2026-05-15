@@ -1335,3 +1335,6 @@ Add an example of how to use the package in your README.
 # evolve-core 🧬
 
 > A self-evolving AI framework powered by genetic algorithms.
+
+---
+Add more detailed examples and screenshots in the README.
