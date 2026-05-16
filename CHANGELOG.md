@@ -1,3 +1,3 @@
 
 ## 2026-05-17
-asi-evolve: Added new example scripts, fixed several bugs, and enhanced documentation for better user experience.
+asi-evolve update: Added new examples, fixed bugs, enhanced documentation for better usability and clarity.
