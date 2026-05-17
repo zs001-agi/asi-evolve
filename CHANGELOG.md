@@ -1,3 +1,3 @@
 
 ## 2026-05-18
-asi-evolve: Added new example projects, fixed several bugs, and enhanced documentation for better user experience.
+asi-evolve v1.2.1 - Released with updated examples, numerous bug fixes, and enhanced documentation to improve user experience and functionality.
