@@ -1,3 +1,3 @@
 
 ## 2026-05-17
-asi-evolve: Added new examples, fixed bugs, and enhanced documentation.
+asi-evolve update: Added new examples, fixed bugs, enhanced documentation.
